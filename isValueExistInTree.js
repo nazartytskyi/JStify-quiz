@@ -16,3 +16,18 @@ const isValueExistInTree = (arr, number) => {
 
   return regExp.test(arrJSON);
 }
+
+
+// Solution 3 (DFS search)
+
+const isValueExistInTree = (tree, searchVal) => {
+  if (!tree) return false;
+
+  const [val, leftTree, rightTree] = tree;
+
+  return (
+    val === searchVal ||
+    isValueExistInTree(leftTree, searchVal) ||
+    isValueExistInTree(rightTree, searchVal)
+  );
+};
